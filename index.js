@@ -1,3 +1,16 @@
+
+/* Remember to comment code before submission */
+
+window.onload= function() {
+  Particles.init({
+    selector: '.background',
+    color: '#808080',
+    connectParticles: true,
+    maxParticles: 115
+  });
+};
+
+
 var SRC_ADD = placeholder/*user input contract adress here*/
 const SRC_CODE_URL = "https://api.etherscan.io/api?module=contract&action=getsourcecode&address="
 const TOKEN = "&apikey=U4WZMWZGNXEKF64XTG8YISH1B62BV95MY6"
