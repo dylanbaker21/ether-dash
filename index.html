@@ -1,5 +1,4 @@
-
-<!-- Remember to comment code before submission action="sourcecodeview.html" target="_blank"-->
+<!-- Dylan Baker Oct.2018 -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,18 +10,29 @@
 	<script src="index.js"></script>
 	<title>Ether Dash</title>
 </head>
+
 <body>
+	<!-- Top title box -->
 	<div class="main-text">
 		<h1>Ethereum Dashboard</h1>
 		<h3>Created by Dylan Baker</h3>
 	</div>
 
+	<!-- Middle form box -->
 	<form onsubmit="displaySourceCode()"> 
-		Enter a verified contract's address to view its source code: <input id="source-code-box" type="text" value="">
+		Enter a verified Ethereum (mainnet) contract address to view its source code: <input id="source-code-box" type="text" value="">
 		<button type="submit">View Source Code</button>
 	</form>
 
+	<!-- Bottom dashboard cluster-->
+	<div class="wrapper">
+		<div class="box a">Total Supply of Ether = <span id="totalSupply">Loading...</span></div>
+		<div class="box b">Current Gas Price in Gwei = <span id="gasPrice">Loading...</span><img id="gaspump" src="assets/gaspump.jpg" alt="gas pump logo"></div>
+		<div class="box c">1 Eth = <span id="lastPrice">Loading...</span></div>
+		<div class="box d">Last Block # <span id="lastBlock">Loading...</span></div>
+	</div>
 
+	<!-- Background -->
 	<canvas class="background"></canvas>
 	<script src="assets/particles.min.js"></script>
 </body>
