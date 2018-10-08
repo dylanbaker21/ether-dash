@@ -8,7 +8,7 @@ body {
 }
 
 html, body {
-    background-color: black;
+    background-color: rgb(255, 255, 255);
     margin: 0;
     padding: 0;
 }
@@ -18,7 +18,7 @@ html, body {
     display: block;
     top: 0;
     left: 0;
-    z-index: 0;
+    z-index: -999;
 }
   
 .main-text {
