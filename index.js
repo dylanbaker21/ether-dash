@@ -1,23 +1,28 @@
 // Dylan Baker - Oct.2018
 
-// Load background immediately and call functions
+// Load background immediately and call API request functions
 window.onload= function() {
-  Particles.init({
+  Particles.init({ // Background options
     selector: '.background',
     color: '#808080',
     connectParticles: true,
     maxParticles: 150
   });
-  requestTotalSupply()
-  requestPrice()
-  requestBlock()
-  requestGasPrice()
+    requestTotalSupply() // API request functions
+    requestPrice()
+    requestBlock()
+    requestGasPrice()
 };
+
+// Alert to warn user of adblock interference
+function adblockAlert(){
+    window.alert('Loading is taking longer than usual, your adblocker may be causing this. Try turning it off :)')
+}
 
 // API Key
 const TOKEN = "&apikey=U4WZMWZGNXEKF64XTG8YISH1B62BV95MY6"
 
-// Variables declarations for source code function
+// Variable declarations for source code function
 var input
 var inputValue
 var FULL_SRC_CODE
@@ -37,7 +42,7 @@ function displaySourceCode() {
         inputValue = input.value
         setURL(inputValue)
         requestSourceCode()
-        setTimeout(function(){ alert("Source code will open in a new tab, you may have to enable pop-ups")})
+        setTimeout(function(){ alert("Source code will open in a new tab, you may have to enable pop-ups :)")})
 }
 
 // This function is called above and retrieves API data, creates new tab and displays it
@@ -61,6 +66,7 @@ const FULL_SUPPLY_URL = SUPPLY_URL + TOKEN
 
 // This function requests and displays total ether supply API data
 function requestTotalSupply() {
+    let timer = setTimeout(adblockAlert, 6000) // if API request doesn't complete in 6 seconds, display adblockAlert
     fetch(FULL_SUPPLY_URL)
     .then(function(result) {
         return result.json()
@@ -69,7 +75,8 @@ function requestTotalSupply() {
         let wei = res.result
         let eth = wei/1000000000000000000 // convert wei to eth
         let cleanEthSupply = eth.toLocaleString('en-US', {maximumFractionDigits:2}) // gives the raw value commas and decimals for readability
-        document.getElementById("totalSupply").innerHTML = cleanEthSupply 
+        document.getElementById("totalSupply").innerHTML = cleanEthSupply
+        clearTimeout(timer) 
     })
     .catch(function(error) {
         console.log(error)
