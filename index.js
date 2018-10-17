@@ -4,9 +4,17 @@
 window.onload= function() {
   Particles.init({ // Background options
     selector: '.background',
-    color: '#808080',
+    color: '#000000',
     connectParticles: true,
-    maxParticles: 150
+    maxParticles: 100,
+    responsive: [ // Responsiveness options for background
+        {
+          breakpoint: 850,
+          options: {
+            maxParticles: 20,
+            }
+        },
+      ]
   });
     requestTotalSupply() // API request functions
     requestPrice()
