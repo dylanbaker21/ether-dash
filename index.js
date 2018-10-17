@@ -16,7 +16,7 @@ window.onload= function() {
 
 // Alert to warn user of adblock interference
 function adblockAlert(){
-    window.alert('Loading is taking longer than usual, your adblocker may be causing this. Try turning it off :)')
+    window.alert('Loading is taking longer than usual, your adblocker may be causing this. Try turning it off and refreshing the page! :)')
 }
 
 // API Key
