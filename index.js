@@ -2,7 +2,7 @@
 
 // Load background immediately and call API request functions
 window.onload= function() {
-  Particles.init({ // Background options
+  /*Particles.init({ // Background options
     selector: '.background',
     color: '#000000',
     connectParticles: true,
@@ -11,11 +11,11 @@ window.onload= function() {
         {
           breakpoint: 850,
           options: {
-            maxParticles: 20,
+            maxParticles: 0,
             }
         },
       ]
-  });
+  });*/
     requestTotalSupply() // API request functions
     requestPrice()
     requestBlock()
@@ -144,7 +144,7 @@ function requestGasPrice() {
     .then(function(res) {
         let hexPrice = res.result
         let gasPrice = parseInt(hexPrice, 16) / 1000000000 // convert hex value to wei, then wei to Gwei
-        document.getElementById("gasPrice").innerHTML = gasPrice
+        document.getElementById("gasPrice").innerHTML = gasPrice.toFixed(2)
     })
     .catch(function(error) {
         console.log(error)
